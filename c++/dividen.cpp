@@ -8,10 +8,7 @@ struct point
     double x;
     double y;
 };
-double dist2(point p1, point p2)
-{
-    return (p1.x-p2.x)*(p1.x-p2.x)+(p1.y-p2.y)*(p1.y-p2.y);
-}
+double dist2(point p1, point p2){return (p1.x-p2.x)*(p1.x-p2.x)+(p1.y-p2.y)*(p1.y-p2.y);}
 int main()
 {
     ios_base::sync_with_stdio(0);
