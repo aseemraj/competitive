@@ -1,8 +1,9 @@
 #include<bits/stdc++.h>
+typedef long long ll;
 using namespace std;
-
 int main()
 {
+    ios_base::sync_with_stdio(0);
     int t, n, m, i, j, k, numnotes;
     float z;
     cin>>t;

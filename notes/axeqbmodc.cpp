@@ -12,8 +12,10 @@ int axbmodc(int a,int b,int c)
 int main()
 {
     int a, b, c;
+    while(1){
     cout<<"Enter a b c: ";
     cin>>a>>b>>c;
     cout<<"Solution for ax=b (mod c): "<<axbmodc(a, b, c)<<endl;
+    }
     return 0;
 }

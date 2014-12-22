@@ -30,11 +30,8 @@ int main()
         e -= 3;
     }
     x--;
-    if(n>0)
-        x++;
-    if(x>0)
-        cout<<x<<endl;
-    else
-        cout<<0<<endl;
+    if(n>0)x++;
+    if(x>0)cout<<x<<endl;
+    else cout<<0<<endl;
     return 0;
 }
