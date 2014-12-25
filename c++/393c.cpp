@@ -1,15 +1,13 @@
 #include<bits/stdc++.h>
 #define loop(i, a, b)  for(int i=a;i<b;i++)
-#define rloop(i, a, b)  for(int i=b-1;i>=a;i--)
-#define loopl(i, a, b)  for(long long i=a;i<b;i++)
-#define rloopl(i, a, b)  for(long long i=b-1;i>=a;i--)
-#define ll long long
+typedef long long ll;
 using namespace std;
 int main()
 {
-    int n;
+    ll n;
     cin>>n;
-    unsigned ll p = 1<<(n+1);
-    cout<<p<<endl;
+    if(n==0)cout<<1<<endl;
+    else if(n&1)cout<<4+(n/2)*12<<endl;
+    else cout<<((n-1)/2)*12+8<<endl;
     return 0;
 }
