@@ -13,8 +13,6 @@ int main()
         cin>>a[i];
         to[i] = i + a[i];
     }
-    if(t==1){cout<<"YES\n";return 0;}
-    bool mark[30005] = {0};
     int x = 1;
     while(x<n && x!=t)
         x = to[x];

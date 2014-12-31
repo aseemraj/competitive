@@ -6,7 +6,7 @@ bool visited[500];
 vector<int> comp1[500];
 vector<int> comp2[500];
 int n;
-bool a[500][500], ta[500][500];
+bool a[500][500];
 int p[500], ans[500];
 void dfs(int v, int component)
 {
