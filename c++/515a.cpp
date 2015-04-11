@@ -1,6 +1,6 @@
 /*
 Author: aseemraj
-Problem: 
+Problem: 515A
 */
 
 #include <bits/stdc++.h>
@@ -13,7 +13,6 @@ Problem:
 #define VI V(int)
 #define VLL V(ll)
 #define VP V(PI)
-#define ALL(c) c.begin(), c.end()
 #define F first
 #define S second
 #define PB push_back
@@ -23,7 +22,10 @@ using namespace std;
 int main()
 {
     ios_base::sync_with_stdio(0);
-    
-    
+
+    int a, b, s;
+    cin>>a>>b>>s;
+    if((s - abs(a)-abs(b))<0 || (s - abs(a)-abs(b))&1)cout<<"No";
+    else cout<<"Yes";
     return 0;
 }

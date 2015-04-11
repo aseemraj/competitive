@@ -1,6 +1,6 @@
 /*
 Author: aseemraj
-Problem: 
+Problem: CHPUZZLE
 */
 
 #include <bits/stdc++.h>
@@ -13,17 +13,36 @@ Problem:
 #define VI V(int)
 #define VLL V(ll)
 #define VP V(PI)
-#define ALL(c) c.begin(), c.end()
 #define F first
 #define S second
 #define PB push_back
 typedef long long ll;
 using namespace std;
 
+const int MOD = 998244353;
+
+int sum(int n)
+{
+    int sum=0;
+    while(n)sum+=n%10, n/=10;
+    return sum;
+}
+
 int main()
 {
-    ios_base::sync_with_stdio(0);
-    
-    
+    cin.sync_with_stdio(0);
+    cin.tie(0);
+
+    int n, p, mm, c, i;
+    cin>>n>>p>>mm;
+
+    loop(m, 0, mm+1)
+    {
+        c = 0;
+        for(i=0; i<=n; i+=p)
+            if(sum(i)<=m)c++;
+        cout<<c<<' ';
+    }
+
     return 0;
 }

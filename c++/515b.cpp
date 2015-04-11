@@ -1,6 +1,6 @@
 /*
 Author: aseemraj
-Problem: 
+Problem: 515B
 */
 
 #include <bits/stdc++.h>
@@ -13,7 +13,6 @@ Problem:
 #define VI V(int)
 #define VLL V(ll)
 #define VP V(PI)
-#define ALL(c) c.begin(), c.end()
 #define F first
 #define S second
 #define PB push_back
@@ -23,7 +22,28 @@ using namespace std;
 int main()
 {
     ios_base::sync_with_stdio(0);
+
+    int n, m, b, g, x;
+    cin>>n>>m;
+    int bh[105] = {0};
+    int gh[105] = {0};
+    cin>>b;
+    loop(i, 0, b){cin>>x;bh[x]=true;}
+    cin>>g;
+    loop(i, 0, g){cin>>x;gh[x]=true;}
     
+    loop(i, 0, 2*m*n+1)
+    {
+        if(gh[i%m])bh[i%n]=true;
+        else if(bh[i%n])gh[i%m]=true;
+    }
+
+    bool f = 0;
     
+    loop(i, 0, n)if(!bh[i]){f=1;break;}
+    loop(i, 0, m)if(!gh[i]){f=1;break;}
+
+    if(f)cout<<"No\n";
+    else cout<<"Yes\n";
     return 0;
 }

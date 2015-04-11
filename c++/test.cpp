@@ -23,17 +23,6 @@ using namespace std;
 
 int main()
 {
-    int n, i;
-    cin>>n;
-    while(n != 0)
-    {
-        int a[n];
-        range(i, n)
-        {
-            cin>>a[i];
-            cout<<a[i];
-        }
-        cin>>n;
-    }
+    cout<<(-22%4);
     return 0;
 }

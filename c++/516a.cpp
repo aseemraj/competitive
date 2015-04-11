@@ -1,6 +1,6 @@
 /*
 Author: aseemraj
-Problem: 
+Problem: 516A
 */
 
 #include <bits/stdc++.h>
@@ -13,7 +13,6 @@ Problem:
 #define VI V(int)
 #define VLL V(ll)
 #define VP V(PI)
-#define ALL(c) c.begin(), c.end()
 #define F first
 #define S second
 #define PB push_back
@@ -23,7 +22,26 @@ using namespace std;
 int main()
 {
     ios_base::sync_with_stdio(0);
-    
-    
+    int n;
+    string s;
+    cin>>n;
+    cin>>s;
+    string f="";
+    loop(i, 0, n)
+    {
+        if(s[i]=='4')
+            f += "322";
+        else if(s[i]=='6')
+            f += "53";
+        else if(s[i]=='8')
+            f += "7222";
+        else if(s[i]=='9')
+            f += "7332";
+        else if(s[i]>'1')
+            f += s[i];
+    }
+    sort(f.rbegin(), f.rend());
+    cout<<f<<"\n";
+
     return 0;
 }

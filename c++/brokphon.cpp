@@ -1,6 +1,6 @@
 /*
 Author: aseemraj
-Problem: 
+Problem: BROKPHON
 */
 
 #include <bits/stdc++.h>
@@ -13,7 +13,6 @@ Problem:
 #define VI V(int)
 #define VLL V(ll)
 #define VP V(PI)
-#define ALL(c) c.begin(), c.end()
 #define F first
 #define S second
 #define PB push_back
@@ -23,7 +22,21 @@ using namespace std;
 int main()
 {
     ios_base::sync_with_stdio(0);
-    
-    
+    int t, n, x, y, c;
+    cin>>t;
+    while(t--)
+    {
+        c = 0;
+        cin>>n;
+        bool faulty[100000] = {0};
+        cin>>x;
+        loop(i, 1, n)
+        {
+            cin>>y;
+            if(y!=x)faulty[i-1] = 1, faulty[i] = 1, x = y;
+        }
+        loop(i, 0, n)if(faulty[i])c++;
+        cout<<c<<"\n";
+    }
     return 0;
 }

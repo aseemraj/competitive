@@ -1,6 +1,6 @@
 /*
 Author: aseemraj
-Problem: 
+Problem: CHEFLCM
 */
 
 #include <bits/stdc++.h>
@@ -13,7 +13,6 @@ Problem:
 #define VI V(int)
 #define VLL V(ll)
 #define VP V(PI)
-#define ALL(c) c.begin(), c.end()
 #define F first
 #define S second
 #define PB push_back
@@ -23,7 +22,23 @@ using namespace std;
 int main()
 {
     ios_base::sync_with_stdio(0);
-    
-    
+    int t, n;
+    ll sum;
+    cin>>t;
+    while(t--)
+    {
+        sum = 0;
+        cin>>n;
+        int rt = sqrt(n)+1;
+        loop(i, 1, rt)
+        {
+            if(n%i==0)
+            {
+                if(i == n/i)sum+=i;
+                else sum+=i+n/i;
+            }
+        }
+        cout<<sum<<"\n";
+    }
     return 0;
 }
