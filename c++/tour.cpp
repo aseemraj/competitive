@@ -1,28 +1,49 @@
-#include<bits/stdc++.h>
-#define loop(i, a, b) for(int i=a;i<b;i++)
+/*
+Author: aseemraj
+Problem: tour
+*/
+
+#include <bits/stdc++.h>
+#define loop(i, a, b) for(int i=a; i<b; i++)
+#define rloop(i, a, b) for(int i=b-1; i>=a; i--)
+#define V(x) vector< x >
+#define P(x, y) pair< x, y >
+#define PI P(int, int)
+#define PLL P(ll, ll)
+#define VI V(int)
+#define VLL V(ll)
+#define VP V(PI)
+#define ALL(c) c.begin(), c.end()
+#define F first
+#define S second
+#define PB push_back
 typedef long long ll;
 using namespace std;
-vector<int> adj[1005];
-vector<int> adjt[1005];
+
+VI adj[1005];
+VI adjt[1005];
 bool visited[1005];
 int comp[1005];
 int indegree[1005];
+
 void dfs(int v, stack<int> &s)
 {
     visited[v] = true;
-    for(vector<int>::iterator i=adj[v].begin();i!=adj[v].end();i++)
+    for(VI::iterator i=adj[v].begin();i!=adj[v].end();i++)
         if(!visited[*i])
             dfs(*i, s);
     s.push(v);
 }
+
 void dfst(int v, int component)
 {
     visited[v] = true;
     comp[v] = component;
-    for(vector<int>::iterator i=adjt[v].begin();i!=adjt[v].end();i++)
+    for(VI::iterator i=adjt[v].begin();i!=adjt[v].end();i++)
         if(!visited[*i])
             dfst(*i, component);
 }
+
 int main()
 {
     ios_base::sync_with_stdio(0);
@@ -63,7 +84,7 @@ int main()
         }
         loop(i, 1, n+1)
         {
-            for(vector<int>::iterator j=adj[i].begin();j!=adj[i].end();j++)
+            for(VI::iterator j=adj[i].begin();j!=adj[i].end();j++)
             {
                 if(comp[i]!=comp[*j])
                     indegree[comp[*j]]++;
