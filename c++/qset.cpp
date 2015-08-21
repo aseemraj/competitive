@@ -31,6 +31,7 @@ node push(node l, node r)
     }
     return t;
 }
+
 void build(int root, int l , int r)
 {
     if(l==r)
