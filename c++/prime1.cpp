@@ -55,6 +55,6 @@ int main()
                 cout<<i<<"\n";
         }
         cout<<"\n";
-    }    
+    }
     return 0;
 }

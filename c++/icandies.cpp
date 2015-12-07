@@ -1,6 +1,6 @@
 /*
 Author: aseemraj
-Problem: 
+Problem: icandies
 */
 
 #include <bits/stdc++.h>
@@ -19,23 +19,27 @@ Problem:
 #define F first
 #define S second
 #define PB push_back
-
-#define SUBLIME
-#if defined SUBLIME
-#  define ISTREAM ifile
-#else
-#  define ISTREAM cin
-#endif
-
 typedef long long ll;
 using namespace std;
 
 int main()
 {
     ios_base::sync_with_stdio(0);
-    #if defined (SUBLIME)
-      std::ifstream ifile("test.input");
-    #endif
-    
+    int cases, t = 1, n, f;
+    cin>>cases;
+    while(cases--)
+    {
+        cin>>n;
+        f = -1;
+        for(int i = 5; i < n; i += 5)
+        {
+            if((n-i)%3 == 0)
+            {
+                f = n-i;
+                break;
+            }
+        }
+        cout<<"Case "<<t++<<": "<<f<<"\n";
+    }
     return 0;
 }

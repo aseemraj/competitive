@@ -1,51 +1,80 @@
 #include<bits/stdc++.h>
-#define loop(i, a, b)  for(int i=a;i<b;i++)
 typedef long long ll;
 using namespace std;
-bool prime[100001];
-vector<int> graph[100001];
-int main()
+const int MAXN = 10005;
+
+bool prime[MAXN];
+int digit[4], dist[MAXN], parent[MAXN];
+
+void sieve()
 {
-    ios_base::sync_with_stdio(0);
-    loop(i, 0, 10000)
+    for(int i = 2; i < MAXN; i++)
         prime[i] = true;
-    int k;
-    loop(i, 2, 100)
-    {
-        if(prime[i].second)
-        {
-            temp = prime[i].first;
-            k = 2*temp;
-            while(k<10000)
-            {
-                prime[k] = false;
-                k += temp;
-            }
-        }
-    }
-    k = 1000;
-    loop(i, 1000, 100000)
+    for(int i=2; i < MAXN; i++)
     {
         if(prime[i])
+            for(int j = i*i; j <= MAXN; j += i)
+                prime[j] = false;
+    }
+}
+
+int arrtonum(int a[])
+{
+    int ans = 0, k = 0;
+    while(k<4)
+        ans = ans*10 + a[k++];
+    return ans;
+}
+
+void numtoarr(int a[], int num)
+{
+    int w=3;
+    while(num)
+    {
+        a[w--] = num % 10;
+        num /= 10;
+    }
+}
+
+int main()
+{
+    int t, a, b;
+    scanf("%d",&t);
+    sieve();
+    while(t--)
+    {
+        scanf("%d %d",&a, &b);
+        memset(dist, -1, sizeof(dist));
+        memset(parent,-1,sizeof(parent));
+        queue<int> q;
+        dist[a] = 0;
+        q.push(a);
+        parent[a]=0;
+
+        while(!q.empty())
         {
-            loop(j, 0, 4)
+            int num = q.front();
+            q.pop();
+            for(int k=3; k>=0; k--)
             {
-                loop(m, 0, 9)
+                numtoarr(digit, num);
+                for(int i = 0; i <= 9; i++)
                 {
-                    if(m!=i/k)
+                    digit[k] = i;
+                    int newnum = arrtonum(digit);
+                    if(prime[newnum] && dist[newnum] == -1 && newnum >= 1000)
                     {
-                        if(prime[m*1000 + (i%1000)]);
+                        dist[newnum] = dist[num] + 1;
+                        parent[newnum] = num;
+                        q.push(newnum);
                     }
                 }
             }
-            graph.push_back(i);
         }
-    }
-    int t, p1, p2;
-    while(t--)
-    {
-        cin>>p1>>p2;
-
+        if(dist[b] == -1)
+            printf("Impossible\n");
+        else
+            printf("%d\n", dist[b]);
     }
     return 0;
 }

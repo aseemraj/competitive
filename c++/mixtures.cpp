@@ -1,22 +1,4 @@
-#include <iostream>
-#include <cstdlib>
-#include <vector>
-#include <list>
-#include <map>
-#include <set>
-#include <queue>
-#include <deque>
-#include <stack>
-#include <bitset>
-#include <algorithm>
-#include <functional>
-#include <numeric>
-#include <utility>
-#include <sstream>
-#include <iomanip>
-#include <cstdio>
-#include <cmath>
-#include <ctime>
+#include <bits/stdc++.h>
 #define all(c) c.begin(), c.end()
 #define ll long long
 using namespace std;
@@ -44,7 +26,7 @@ int main()
         for(i=0;i<n;i++)
         {
             for(j=i+1;j<n;j++)
-                csum[i][j] = (csum[i][j-1]+csum[j][j])%100;
+                csum[i][j] = (csum[i][j-1] + csum[j][j]) % 100;
         }
         for(i=1;i<n;i++)
             smoke[i-1][i] = csum[i-1][i-1]*csum[i][i];
